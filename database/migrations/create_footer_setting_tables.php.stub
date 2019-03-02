@@ -1,0 +1,73 @@
+<?php
+/**
+ * This file is part of the tian-wolf/laravel-footer-setting
+ * (c) 天狼网络 <tian_wolf@sian.com>
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+ 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateFooterSettingTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        $tableNames = config('footer-setting.table_names');
+
+        # 页脚配置数据表
+        Schema::create($tableNames['configs'], function (Blueprint $table) {
+            $table->increments('id')->comment('自增编号');
+            $table->string('key')->comment('配置键值');
+            $table->string('value')->comment('配置数据');
+            $table->timestamps();
+        });
+
+        # 页脚友情连接数据表
+        Schema::create($tableNames['friendly'],function(Blueprint $table){
+            $table->increments('id')->comment('自增编号');
+            $table->integer('uid')->default(0)->comment('添加用户');
+            $table->enum('type',[0,1])->comment('链接类型[0-友情，1-集团]');
+            $table->string('title',20)->comment('链接标题');
+            $table->string('linkuri')->nullable()->comment('链接地址');
+            $table->string('avatar')->nullable()->comment('链接头像');
+            $table->tinyInteger('sortnum')->default(99)->comment('链接排序');
+            $table->softDeletes()->comment('删除时间');
+            $table->timestamps();
+        });
+
+
+        # 页脚导航菜单数据表
+        Schema::create($tableNames['navmenus'], function (Blueprint $table) {
+            $table->increments('id')->comment('自增编号');
+            $table->integer('parent_id')->default(0)->comment('父级编号');
+            $table->enum('type',['default','jump','image'])->default('default')->comment('菜单类型');
+            $table->string('title')->comment('菜单名称');
+            $table->string('linkuri')->nullable()->comment('跳转链接');
+            $table->tinyInteger('sortnum')->default(99)->comment('菜单排序');
+            $table->softDeletes()->comment('删除时间');
+            $table->timestamps();
+        });
+
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        $tableNames = config('footer-setting.table_names');
+        Schema::dropIfExists($tableNames['configs']);
+        Schema::dropIfExists($tableNames['friendly']);
+        Schema::dropIfExists($tableNames['navmenus']);
+
+    }
+}

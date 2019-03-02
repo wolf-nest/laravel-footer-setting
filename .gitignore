@@ -1,0 +1,7 @@
+.history
+.Ds_Store
+/docs
+/build
+/vendor
+/test
+composer.lock
