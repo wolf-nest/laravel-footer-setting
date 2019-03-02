@@ -21,7 +21,7 @@ return [
      * 路由设置配置
      */
     'route_setting'=>[
-        'prefix'=>'admin',
+        'prefix'=>'admin/footer-setting',
         'middleware'=>['web','auth']
     ],
 
