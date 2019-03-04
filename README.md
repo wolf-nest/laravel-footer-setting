@@ -129,6 +129,10 @@ class AppServiceProvider extends ServiceProvider
         });
     }
 }
+
+在前端基础模版中引入footer
+<link rel="stylesheet" type="text/css" media="screen" href="/static/home/vender/footer-setting/footer.css" />
+@include('vendor.footer-setting.footer')
 ```
 
 

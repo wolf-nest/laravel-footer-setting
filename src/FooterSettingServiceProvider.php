@@ -49,11 +49,14 @@ class FooterSettingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'../resources/views','footer-setting');
+        $this->loadViewsFrom(__DIR__.'/../resources/views','footer-setting');
+        // $this->//
         $this->setRoutes($this->app->router);
         $this->publishes([
-            __DIR__.'/views'=>base_path('resources/views/vendor/footer-setting')
+            __DIR__.'/../resources/views'=>base_path('resources/views/vendor/footer-setting')
         ],'views');
+        
+        $this->publishes([__DIR__.'/../resources/assets' => public_path('static/vendor')], 'footer-setting');
 
         $this->publishes([
             __DIR__.'/../config/footer-setting.php' => config_path('footer-setting.php'),

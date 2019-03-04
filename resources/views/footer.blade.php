@@ -9,11 +9,11 @@
                     <a class="ft-li">{{$item->title}}</a>
                     @foreach ($item->childs as $_item)
                         @if ($_item->type =='default')
-                        <a href="javascript:void(0);" class="ft-li">{{$_item->title}}</a>
+                        <a href="javascript:void(0);" title="{{$_item->title}}" class="ft-li">{{$_item->title}}</a>
                         @elseif($_item->type =='jump')
-                        <a href="{{$_item->linkuri}}" class="ft-li">{{$_item->title}}</a>
+                        <a target="_blank" title="{{$_item->title}}" href="{{$_item->linkuri}}" class="ft-li">{{$_item->title}}</a>
                         @elseif($_item->type =='image')
-                        <a class="ft-li mr-shows ew-hov">
+                        <a href="javascript:void(0);" title="{{$_item->title}}" class="ft-li mr-shows ew-hov">
                             {{$_item->title}}
                             <div class="ewm-box">
                                 <img src="{{$_item->linkuri}}" alt="{{$_item->title}}">
@@ -26,7 +26,9 @@
             
                 @if (count($footer['configs']))
                 <div class="map-wrap">
-                    <div class="map-img" style="background:url({{$footer['configs']['thumb']}}) no-repeat center"></div>
+                    <div class="map-img">
+                        <img src="{{$footer['configs']['thumb']}}" alt="{{$footer['configs']['service_citys']}}"/>
+                    </div>
                     <div class="map-txts">
                         <div class="fwrs">服务热线：<span>{{$footer['configs']['service_hotline']}}</span></div>
                         <div class="map-txt-title">顶呱呱已覆盖主要城市</div>
@@ -39,11 +41,11 @@
 
             @isset($footer['friendly'])
             <div class="bots-box-mid">
-                @isset($footer['friendly']['group']))
+                @isset($footer['friendly']['group'])
                     <p style="margin-bottom: 14px;">
                         <span>集团站群：</span>
                         @foreach ($footer['friendly']['group'] as $item)
-                            <a href="{{$item['linkuri']}}">{{$item['title']}}</a>
+                        <a target="_blank" title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
                         @endforeach
                     </p>
                 @endisset
@@ -51,7 +53,7 @@
                     <p>
                         <span>友情链接：</span>
                         @foreach ($footer['friendly']['other'] as $item)
-                            <a href="{{$item['linkuri']}}">{{$item['title']}}</a>
+                        <a target="_blank" title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
                         @endforeach
                     </p> 
                 @endisset
