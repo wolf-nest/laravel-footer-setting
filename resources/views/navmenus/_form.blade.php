@@ -28,12 +28,20 @@
     </div>
 </div>
 
+<!-- 展示图片上传 -->
+<!--div class="layui-form-item">
+    <label for="" class="layui-form-label" ></label>
+</div-->
+<!-- /展示图片上传-->
+
 <div class="layui-form-item">
-    <label for="" class="layui-form-label">跳转链接</label>
+    <label for="" class="layui-form-label">相关链接</label>
     <div class="layui-input-inline">
-        <input type="text" name="linkuri" value="{{$navmenus->linkuri??old('linkuri')}}" lay-verify="" placeholder="请输入跳转链接非必填" class="layui-input" >
+        <input type="text" name="linkuri" value="{{$navmenus->linkuri??old('linkuri')}}" lay-verify="" placeholder="请输入跳转链接/图片链接非必填" class="layui-input" >
     </div>
 </div>
+
+
 
 <div class="layui-form-item">
     <label for="" class="layui-form-label">排序编号</label>

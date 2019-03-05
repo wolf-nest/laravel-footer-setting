@@ -43,8 +43,6 @@ $ php artisan vendor:publish --provider="Tianwolf\FooterSetting\FooterSettingSer
 
 随后，请在 `config` 文件夹中完善配置信息。
 
-`.env` 文件里面配置
-
 ## 添加权限数据
 
 ```PHP
@@ -131,10 +129,9 @@ class AppServiceProvider extends ServiceProvider
 }
 
 在前端基础模版中引入footer
-<link rel="stylesheet" type="text/css" media="screen" href="/static/home/vender/footer-setting/footer.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/static/home/vendor/footer.css" />
 @include('vendor.footer-setting.footer')
 ```
-
 
 具体使用说明请传送至 [https://github.com/tian-wolf/laravel-footer-setting](https://github.com/tian-wolf/laravel-footer-setting)
 

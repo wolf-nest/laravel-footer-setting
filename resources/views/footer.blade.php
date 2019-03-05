@@ -27,12 +27,18 @@
                 @if (count($footer['configs']))
                 <div class="map-wrap">
                     <div class="map-img">
-                        <img src="{{$footer['configs']['thumb']}}" alt="{{$footer['configs']['service_citys']}}"/>
+                        @isset($footer['configs']['thumb'])
+                            <img src="{{$footer['configs']['thumb']}}" alt="{{$footer['configs']['service_citys'] ?? ''}}"/>
+                        @endisset
                     </div>
                     <div class="map-txts">
-                        <div class="fwrs">服务热线：<span>{{$footer['configs']['service_hotline']}}</span></div>
-                        <div class="map-txt-title">顶呱呱已覆盖主要城市</div>
-                        <p class="map-txt-cont">{{$footer['configs']['service_citys']}}</p>
+                        @isset($footer['configs']['service_hotline'])
+                            <div class="fwrs">服务热线：<span>{{$footer['configs']['service_hotline']}}</span></div>
+                        @endisset
+                        @isset($footer['configs']['service_citys'])
+                            <div class="map-txt-title">顶呱呱已覆盖主要城市</div>
+                            <p class="map-txt-cont">{{$footer['configs']['service_citys']}}</p>
+                        @endisset
                     </div>
                 </div> 
                 @endif
@@ -59,9 +65,11 @@
                 @endisset
             </div>
             @endisset
-            <div class="bots-box-bot">
-                <p>{{$footer['configs']['copyright'] ?? ''}}&nbsp;&nbsp;{{$footer['configs']['icp'] ?? ''}}</p>
-            </div>
+            @isset($footer['configs'])
+                <div class="bots-box-bot">
+                    <p>{{$footer['configs']['copyright'] ?? ''}}&nbsp;&nbsp;{{$footer['configs']['icp'] ?? ''}}</p>
+                </div> 
+            @endisset
         </div>
     </div>
 </div>

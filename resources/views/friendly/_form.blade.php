@@ -2,7 +2,7 @@
     <label for="" class="layui-form-label">链接类型</label>
     <div class="layui-input-inline">
         <select name="type" lay-verify="required">
-            <option value=""></option>
+            <option value="">请选择链接类型</option>
             @foreach($types as $type)
                 <option value="{{ $type['id'] }}" @if(isset($friendly->type)&&$friendly->type==$type['id'])selected @endif >{{ $type['name'] }}</option>
             @endforeach
@@ -27,7 +27,7 @@
 <div class="layui-form-item">
     <label for="" class="layui-form-label">展示图片</label>
     <div class="layui-input-inline">
-        <input type="text" name="avatar" value="{{$friendly->avatar??old('avatar')}}" lay-verify="" placeholder="请输入展示图片非必填" class="layui-input" >
+        <input type="text" name="avatar" value="{{$friendly->avatar??old('avatar')}}" lay-verify="" placeholder="请输入展示图片链接非必填" class="layui-input" >
     </div>
 </div>
 

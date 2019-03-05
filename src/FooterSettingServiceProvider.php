@@ -1,7 +1,9 @@
 <?php
-/**
+/*
  * This file is part of the tian-wolf/laravel-footer-setting
+ * 
  * (c) 天狼网络 <tian_wolf@sian.com>
+ * 
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
@@ -56,7 +58,7 @@ class FooterSettingServiceProvider extends ServiceProvider
             __DIR__.'/../resources/views'=>base_path('resources/views/vendor/footer-setting')
         ],'views');
         
-        $this->publishes([__DIR__.'/../resources/assets' => public_path('static/vendor')], 'footer-setting');
+        $this->publishes([__DIR__.'/../resources/assets' => public_path('static/vendor')], 'styles');
 
         $this->publishes([
             __DIR__.'/../config/footer-setting.php' => config_path('footer-setting.php'),
