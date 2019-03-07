@@ -66,9 +66,18 @@
             </div>
             @endisset
             @isset($footer['configs'])
-                <div class="bots-box-bot">
-                    <p>{{$footer['configs']['copyright'] ?? ''}}&nbsp;&nbsp;{{$footer['configs']['icp'] ?? ''}}</p>
-                </div> 
+            <div class="bots-box-bot">
+                <div class="foot-img-icon">
+                    <a target="_blank" href="javascript:void(0);" style="width: 115px;"><img src="/static/home/images/foot_imga.png" alt=""></a>
+                    <a target="_blank" href="javascript:void(0);" style="width: 121px;"><img src="/static/home/images/foot_imgb.png" alt=""></a>
+                    <a target="_blank" href="javascript:void(0);" style="width: 120px;"><img src="/static/home/images/foot_imgc.png" alt=""></a>
+                    <a target="_blank" href="javascript:void(0);" style="width: 120px;"><img src="/static/home/images/foot_imgd.png" alt=""></a>
+                </div>
+                <p style="margin-bottom: 10px">{{$footer['configs']['copyright'] ?? ''}}</p>
+                @isset($footer['configs']['icp'])
+                <a href="http://www.miitbeian.gov.cn" target="_blank"><p>{{$footer['configs']['icp'] ?? ''}}</p></a>
+                @endisset
+            </div> 
             @endisset
         </div>
     </div>
