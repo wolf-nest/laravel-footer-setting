@@ -43,7 +43,7 @@ $ php artisan vendor:publish --provider="Tianwolf\FooterSetting\FooterSettingSer
 
 随后，请在 `config` 文件夹中完善配置信息。
 
-## 添加权限数据
+## 添加权限数据 至
 
 ```PHP
 [
@@ -115,7 +115,7 @@ class AppServiceProvider extends ServiceProvider
                     $friendly['other'][$key]['title'] = $val['title'];
                     $friendly['other'][$key]['avatar'] = $val['avatar'];
                     $friendly['other'][$key]['linkuri']= $val['linkuri'];
-                }elseif($val['type'] == 0){
+                }elseif($val['type'] == 1){
                     $friendly['group'][$key]['title']= $val['title'];
                     $friendly['group'][$key]['avatar']= $val['avatar'];
                     $friendly['group'][$key]['linkuri'] = $val['linkuri'];
@@ -128,13 +128,11 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 
-在前端基础模版中引入footer
-<link rel="stylesheet" type="text/css" media="screen" href="/static/home/vendor/footer.css" />
+在前端基础模版中引入footer 模版 与css样式
+<link rel="stylesheet" type="text/css" media="screen" href="/static/vendor/footer.css" />
 @include('vendor.footer-setting.footer')
 ```
 
 具体使用说明请传送至 [https://github.com/tian-wolf/laravel-footer-setting](https://github.com/tian-wolf/laravel-footer-setting)
 
-## License
-      
-[MIT](https://github.com/tian-wolf/laravel-footer-setting/blob/master/LICENSE)
+## LICENSE [MIT](https://github.com/tian-wolf/laravel-footer-setting/blob/master/LICENSE)
