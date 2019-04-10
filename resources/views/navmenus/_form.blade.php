@@ -44,6 +44,18 @@
 
 
 <div class="layui-form-item">
+    <label for="" class="layui-form-label">启用nofollow</label>
+    <div class="layui-input-block">
+        <input type="hidden" name="is_open_nofollow" id="is_open_nofollow" value="@if(isset($navmenus->is_open_nofollow)){{$navmenus->is_open_nofollow}}@else 0 @endif">
+        @if( isset($navmenus->is_open_nofollow) && $navmenus->is_open_nofollow == 1 )
+            <input type="checkbox" name="switch" lay-skin="switch" lay-text="启用|未启用" lay-filter="isShow" checked >
+        @else
+            <input type="checkbox" name="switch" lay-skin="switch" lay-text="启用|未启用" lay-filter="isShow" >
+        @endif
+    </div>
+</div>
+
+<div class="layui-form-item">
     <label for="" class="layui-form-label">排序编号</label>
     <div class="layui-input-inline">
         <input type="text" name="sortnum" value="{{($navmenus->sortnum??old('sortnum'))??99}}" lay-verify="number" placeholder="请输入排序编号" class="layui-input" >
