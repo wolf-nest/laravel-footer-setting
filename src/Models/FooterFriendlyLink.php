@@ -32,5 +32,5 @@ class FooterFriendlyLink extends Model
      * @author 杨鹏 <yangpeng1@dgg.net>
      * @var array
      */
-    protected $fillable = ['uid','type','title','linkuri','avatar','sortnum','deleted_at'];
+    protected $fillable = ['uid','type','title','linkuri','avatar','sortnum','is_open_nofollow','deleted_at'];
 }

@@ -32,7 +32,7 @@ class FooterNavMenus extends Model
      * @author 杨鹏 <yangpeng1@dgg.net>
      * @var array
      */
-    protected $fillable = ['parent_id','type','title','linkuri','sortnum','deleted_at'];
+    protected $fillable = ['parent_id','type','title','linkuri','sortnum','is_open_nofollow','deleted_at'];
 
     /**
      * 获取子菜单栏目
