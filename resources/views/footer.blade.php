@@ -11,7 +11,7 @@
                         @if ($_item->type =='default')
                         <a href="javascript:void(0);" title="{{$_item->title}}" class="ft-li">{{$_item->title}}</a>
                         @elseif($_item->type =='jump')
-                        <a target="_blank" title="{{$_item->title}}" href="{{$_item->linkuri}}" class="ft-li">{{$_item->title}}</a>
+                        <a target="_blank" @if( $_item->is_open_nofollow == 1 ) rel="nofollow" @endif title="{{$_item->title}}" href="{{$_item->linkuri}}" class="ft-li">{{$_item->title}}</a>
                         @elseif($_item->type =='image')
                         <a href="javascript:void(0);" title="{{$_item->title}}" class="ft-li mr-shows ew-hov">
                             {{$_item->title}}
@@ -51,7 +51,7 @@
                     <p style="margin-bottom: 14px;">
                         <span>集团站群：</span>
                         @foreach ($footer['friendly']['group'] as $item)
-                        <a target="_blank" title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
+                        <a target="_blank" @if($item['is_open_nofollow'] == 1 ) rel="nofollow" @endif title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
                         @endforeach
                     </p>
                 @endisset
@@ -59,7 +59,7 @@
                     <p>
                         <span>友情链接：</span>
                         @foreach ($footer['friendly']['other'] as $item)
-                        <a target="_blank" title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
+                        <a target="_blank" @if($item['is_open_nofollow'] == 1 ) rel="nofollow" @endif title="{{$item['title']}}" href="{{$item['linkuri']}}">{{$item['title']}}</a>
                         @endforeach
                     </p> 
                 @endisset

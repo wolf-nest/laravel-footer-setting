@@ -97,8 +97,9 @@ class FooterFriendlyController extends Controller
      * @return void
      */
     public function updateAction(Request $request){
-        $data = $request->only(['id', 'title','type', 'linkuri', 'avatar', 'sortnum']);
+        $data = $request->only(['id', 'title','type', 'linkuri', 'avatar', 'sortnum','is_open_nofollow','switch']);
         $friendly = FooterFriendlyLink::whereNull('deleted_at')->findOrFail($data['id']);
+        $data['is_open_nofollow'] = isset($data['switch']) && $data['switch'] == 'on' ? 1 : 0 ;
         if ($friendly->update($data)) {
             return redirect(route('admin.footer.friendly'))->with(['status' => '更新成功']);
         }

@@ -107,8 +107,9 @@ class FooterNavmenusController extends Controller
      * @return void
      */
     public function updateAction(Request $request){
-        $data = $request->only(['id', 'parent_id', 'title', 'type', 'linkuri', 'sortnum']);
+        $data = $request->only(['id', 'parent_id', 'title', 'type', 'linkuri', 'sortnum','is_open_nofollow','switch']);
         $navmenus = FooterNavMenus::whereNull('deleted_at')->findOrFail($data['id']);
+        $data['is_open_nofollow'] = isset($data['switch']) && $data['switch'] == 'on' ? 1 : 0 ;
         if ($navmenus->update($data)) {
             return redirect(route('admin.footer.navmenus'))->with(['status' => '更新成功']);
         }

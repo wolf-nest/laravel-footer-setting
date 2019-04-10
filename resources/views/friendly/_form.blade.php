@@ -40,6 +40,18 @@
 
 
 <div class="layui-form-item">
+    <label for="" class="layui-form-label">启用nofollow</label>
+    <div class="layui-input-block">
+        <input type="hidden" name="is_open_nofollow" id="is_open_nofollow" value="@if(isset($friendly->is_open_nofollow)){{$friendly->is_open_nofollow}}@else 0 @endif">
+        @if( isset($friendly->is_open_nofollow) && $friendly->is_open_nofollow == 1 )
+            <input type="checkbox" name="switch" lay-skin="switch" lay-text="启用|未启用" lay-filter="isShow" checked >
+        @else
+            <input type="checkbox" name="switch" lay-skin="switch" lay-text="启用|未启用" lay-filter="isShow" >
+        @endif
+    </div>
+</div>
+
+<div class="layui-form-item">
     <div class="layui-input-block">
         <button type="submit" class="layui-btn" lay-submit="" lay-filter="formDemo">确 认</button>
         <a  class="layui-btn" href="{{route('admin.footer.friendly')}}" >返 回</a>
