@@ -81,8 +81,9 @@ class FooterFriendlyController extends Controller
      * @return void
      */
     public function storedAction(Request $request){
-        $data = $request->only(['title','type', 'linkuri','avatar','sortnum']);
+        $data = $request->only(['title','type', 'linkuri','avatar','sortnum','switch']);
         $data['uid'] = auth('admin')->user()->id;
+        $data['is_open_nofollow'] = isset($data['switch']) && $data['switch'] == 'on' ? 1 : 0 ;
         $friendly = FooterFriendlyLink::create($data);
         if($friendly){
             return redirect(route('admin.footer.friendly'))->with(['status' => '添加成功']);

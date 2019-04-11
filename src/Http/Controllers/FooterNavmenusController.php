@@ -92,7 +92,8 @@ class FooterNavmenusController extends Controller
      * @return void
      */
     public function storedAction(Request $request){
-        $data = $request->only(['parent_id','title', 'type','linkuri','sortnum']);
+        $data = $request->only(['parent_id','title', 'type','linkuri','sortnum','switch']);
+        $data['is_open_nofollow'] = isset($data['switch']) && $data['switch'] == 'on' ? 1 : 0 ;
         $navmenus = FooterNavMenus::create($data);
         if ($navmenus) {
             return redirect(route('admin.footer.navmenus'))->with(['status' => '添加成功']);
