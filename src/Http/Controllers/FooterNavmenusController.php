@@ -183,5 +183,29 @@ class FooterNavmenusController extends Controller
         }
         return response()->json(['code' => 1, 'msg' => '删除失败']);
     }
-
+    
+    /**
+     * 列表页面是否开启nofollow功能
+     * @author chenshubo@dgg.net
+     * @param Request $request
+     * @return void
+     */
+    public function checknofollow(Request $request,$id)
+    {
+        $status = $request->get('status');
+    
+        if (empty($id) || !is_numeric($id) ) {
+            return response()->json(['code' => 1, 'msg' => '请求参数错误']);
+        }
+        $friendly = FooterNavMenus::where('id',$id);
+    
+        if ( empty($friendly) ) {
+            return response()->json(['code' => 1, 'msg' => '当前信息不存在']);
+        }
+    
+        if ($friendly->update(['is_open_nofollow'=> ($status == 1 ? 0 : 1)])) {
+            return response()->json(['code' => 0, 'msg' => '操作成功']);
+        }
+        return response()->json(['code' => 1, 'msg' => '操作失败']);
+    }
 }
