@@ -118,7 +118,7 @@ class FooterSettingServiceProvider extends ServiceProvider
                 $router->put('/status', 'FooterFriendlyController@statusAction')->name('admin.footer.friendly.status');
                 $router->put('/update', 'FooterFriendlyController@updateAction')->name('admin.footer.friendly.update');
                 $router->delete('/destroy', 'FooterFriendlyController@destroy')->name('admin.footer.friendly.destroy');
-
+                $router->put('/{id}/checknofollow/', 'FooterFriendlyController@checknofollow')->name('admin.footer.friendly.checknofollow');//是否开启nofollow
             });
 
             #页脚导航菜单管理路由组 
@@ -133,6 +133,7 @@ class FooterSettingServiceProvider extends ServiceProvider
                 $router->put('/status', 'FooterNavmenusController@statusAction')->name('admin.footer.navmenus.status');
                 $router->put('/update', 'FooterNavmenusController@updateAction')->name('admin.footer.navmenus.update');
                 $router->delete('/destroy', 'FooterNavmenusController@destroy')->name('admin.footer.navmenus.destroy');
+                $router->put('/{id}/checknofollow/', 'FooterNavmenusController@checknofollow')->name('admin.footer.navmenus.checknofollow');//是否开启nofollow
             });
         });
     }

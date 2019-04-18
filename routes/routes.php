@@ -26,7 +26,8 @@ Route::group(['namespace'=>'Tianwolf\FooterSetting\Http\Controllers','prefix'=>'
         Route::put('/status', 'FooterFriendlyController@statusAction')->name('admin.footer.friendly.status');
         Route::put('/update', 'FooterFriendlyController@updateAction')->name('admin.footer.friendly.update');
         Route::delete('/destroy', 'FooterFriendlyController@destroy')->name('admin.footer.friendly.destroy');
-
+        Route::put('/{id}/checknofollow/', 'FooterFriendlyController@checknofollow')->name('admin.footer.friendly.checknofollow');//是否开启nofollow
+        
     });
 
     #页脚导航菜单管理路由组
@@ -41,5 +42,6 @@ Route::group(['namespace'=>'Tianwolf\FooterSetting\Http\Controllers','prefix'=>'
         Route::put('/status', 'FooterNavmenusController@statusAction')->name('admin.footer.navmenus.status');
         Route::put('/update', 'FooterNavmenusController@updateAction')->name('admin.footer.navmenus.update');
         Route::delete('/destroy', 'FooterNavmenusController@destroy')->name('admin.footer.navmenus.destroy');
+        put('/{id}/checknofollow/', 'FooterNavmenusController@checknofollow')->name('admin.footer.navmenus.checknofollow');//是否开启nofollow
     });
 });
