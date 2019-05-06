@@ -3,7 +3,7 @@
 <h1 align="center">Laravel Footer Setting</h1>
 
 <p align="center"></p>
-[![Latest Stable Version](https://poser.pugx.org/tian-wolf/laravel-footer-setting/v/stable)](https://packagist.org/packages/tian-wolf/laravel-footer-setting)
+[Latest Stable Version](https://poser.pugx.org/tian-wolf/laravel-footer-setting/v/stable)
 [![Total Downloads](https://poser.pugx.org/tian-wolf/laravel-footer-setting/downloads)](https://packagist.org/packages/tian-wolf/laravel-footer-setting)
 [![Latest Unstable Version](https://poser.pugx.org/tian-wolf/laravel-footer-setting/v/unstable)](https://packagist.org/packages/tian-wolf/laravel-footer-setting)
 [![License](https://poser.pugx.org/tian-wolf/laravel-footer-setting/license)](https://packagist.org/packages/tian-wolf/laravel-footer-setting)
