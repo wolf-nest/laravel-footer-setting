@@ -12,7 +12,20 @@ use App\Http\Controllers\Controller;
 use Tianwolf\FooterSetting\Models\FooterFriendlyLink;
 class FooterFriendlyController extends Controller
 {
-    protected $types=[['id'=>0,'name'=>'友情链接'],['id'=>1,'name'=> '集团站群']];
+    protected $types= [
+        ['id'=>0,'name'=>'友情链接'],
+        ['id'=>1,'name'=> '集团站群'],
+        ['id'=>2,'name'=> '北京友情链接'],
+        ['id'=>3,'name'=> '成都友情链接'],
+        ['id'=>4,'name'=> '杭州友情链接'],
+        ['id'=>5,'name'=> '广州友情链接'],
+        ['id'=>6,'name'=> '武汉友情链接'],
+        ['id'=>7,'name'=> '深圳友情链接'],
+        ['id'=>8,'name'=> '上海友情链接'],
+        ['id'=>9,'name'=> '重庆友情链接'],
+        ['id'=>10,'name'=> '石家庄链接']
+    ];
+    
     /**
      * 友情链接页面展示
      * @author 杨鹏 <yangpeng1@dgg.net>
